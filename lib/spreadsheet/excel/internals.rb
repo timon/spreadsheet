@@ -252,6 +252,8 @@ module Internals
                              #    Scenarios: 1 = protected (BIFF5-BIFF8, ➜ 6.86)
     :password     => 0x0013, # ○  PASSWORD Hash value of the password;
                              #             0   = no password (➜ 6.72)
+    :sheet_protect=> 0x0867, # ○	SHEETPROTECTION	Additional protection, ➜ 5.98
+                             #             BIFF8 only
     ########################## ○  File Protection Block ➜ 5.19
     :writeprot    => 0x0086, # ○  WRITEPROT File is write protected
                              #    (BIFF3-BIFF8, ➜ 6.112), password in FILESHARING
@@ -310,6 +312,19 @@ module Internals
     :wsbool       => 0x0081, # ○  WSBOOL ➜ 6.113
     :defcolwidth  => 0x0055, # ○  DEFCOLWIDTH ➜ 6.29
     :sort         => 0x0090, # ○  SORT ➜ 6.95
+    ##########################  From MS docs
+    :pls          => 0x004d, # Environtment-specific print record
+    :mms          => 0x00c1, # mms: addmenu/delmenu record group count
+    :addmenu      => 0x00c2,
+    :delmenu      => 0x00c3,
+    :celloffsets  => 0x00d7,
+    :ifacebegin   => 0x00e1,
+    :ifaceend     => 0x00e2,
+    :bof          => 0x0809,
+    :prot4rev     => 0x01af,
+    :prot4pass    => 0x01bc,
+    :excel9file   => 0x01c0,
+    :recalcid     => 0x01c1
   }
 =begin ## unknown opcodes
 0x00bf, 0x00c0, 0x00c1, 0x00e1, 0x00e2, 0x00eb, 0x01af, 0x01bc
